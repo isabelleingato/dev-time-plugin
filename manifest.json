@@ -1,0 +1,21 @@
+{
+    "name": "DevTime Plugin",
+    "version": "1.0",
+    "description": "Keep track of how much time you spend learning about different developer topics",
+    "permissions": ["activeTab", "tabs", "storage", "declarativeContent"],
+    "background": {
+        "persistent": false,
+        "scripts": ["background.js"]
+    },
+    "incognito": "not_allowed",
+    "options_page": "options.html",
+    "browser_action": {
+        "default_popup": "popup.html",
+        "default_icon": "images/icon.png",
+        "default_title": "DevTime"
+    },
+    "icons": {
+        "16": "images/icon.png"
+    },
+    "manifest_version": 2
+}
