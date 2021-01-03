@@ -1,4 +1,4 @@
-chrome.runtime.onInstalled.addListener(function() {
+function updateDevTime() {
     chrome.storage.sync.get(null, function(items) {
         var updatedTopics = {};
         // exclude irrelevant topics
@@ -12,7 +12,7 @@ chrome.runtime.onInstalled.addListener(function() {
             allFrames: false,
             code: 'var results = {};\
             results.topics = {};\
-            for (topic of ' + Object.keys(updatedTopics) + ') { \
+            for (topic of [' + Object.keys(updatedTopics) + ']) { \
                 if (document.querySelector("h1") && document.querySelector("h1").innerText.includes(topic)) { \
                     results.topics[topic] = true;    \
                 } \
@@ -29,5 +29,9 @@ chrome.runtime.onInstalled.addListener(function() {
             }
             chrome.storage.sync.set(updatedTopics);
         });
-    }); 
+    });
+}
+
+chrome.runtime.onInstalled.addListener(function() {
+    chrome.tabs.onActivated.addListener(updateDevTime);
 });
