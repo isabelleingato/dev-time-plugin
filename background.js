@@ -12,20 +12,27 @@ function updateDevTime() {
             allFrames: false,
             code: 'var results = {};\
             results.topics = {};\
-            for (topic of [' + Object.keys(updatedTopics) + ']) { \
-                if (document.querySelector("h1") && document.querySelector("h1").innerText.includes(topic)) { \
+            for (topic of [' + Object.keys(updatedTopics).map(function(item) {
+                return '"' + item + '"';
+            }).join(',') + ']) { \
+                if (document.body.innerText.includes(topic)) { \
                     results.topics[topic] = true;    \
                 } \
             }\
-            return results;'
-        }, function(results) {
+            results;'
+        },
+        function(results) {
             if (!results) {
                 return;
             }
             for (item in updatedTopics) {
-                var value = items[item];
-                value.value = (value.value || 0) + (results[0].topics[item] ? 1 : 0);
-                updatedTopics[item] = value;
+                try {
+                    if (results[0].topics[item]) {
+                        updatedTopics[item].value = parseInt(updatedTopics[item].value || 0) + 1;
+                    }
+                } catch(e) {
+                    console.error(e);
+                }
             }
             chrome.storage.sync.set(updatedTopics);
         });
