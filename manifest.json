@@ -2,7 +2,7 @@
     "name": "DevTime Plugin",
     "version": "1.0",
     "description": "Keep track of how much time you spend learning about different developer topics",
-    "permissions": ["activeTab", "tabs", "storage", "declarativeContent"],
+    "permissions": ["activeTab", "tabs", "storage", "declarativeContent", "<all_urls>"],
     "background": {
         "persistent": false,
         "scripts": ["background.js"]
