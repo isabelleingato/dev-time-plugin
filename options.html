@@ -2,14 +2,25 @@
 <html>
   <head>
     <style>
+        body {
+            background-color: lightblue;
+        }
+
+        .invisible {
+            visibility: hidden;
+        }
     </style>
   </head>
   <body>
     <h1>Topics</h1>
-    <p>Choose developer topics to track or input your own...</p>
-    <label><input type="checkbox" value="Python" />Python</label>
-    <label><input type="checkbox" value="JavaScript" />JavaScript</label>
-    <label><input type="checkbox" value="Docker" />Docker</label>
+    <button class="invisible delete">Clear All Data</button>
+    <p>Choose from the following developer topics to start keeping track:</p>
+    <ol>
+        <li><label><input type="checkbox" value="python" />Python</label></li>
+        <li><label><input type="checkbox" value="docker" />Docker</label></li>
+        <li><label><input type="checkbox" value="ruby" />Ruby</label></li>
+        <li><label><input type="checkbox" value="kubernetes" />Kubernetes</label></li>
+    </ul>
   </body>
   <script src="options.js"></script>
 </html>

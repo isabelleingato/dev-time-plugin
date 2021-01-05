@@ -1,10 +1,12 @@
-# dev-time-plugin
+# Dev Time Plugin
 
-Fun side project to develop a Chrome extension for tracking developer learning time
+Fun side project to develop a Chrome extension for tracking developer learning time.
 
-Related documentation:
+## Related documentation:
 * https://developer.chrome.com/docs/extensions/mv3/
 * https://developer.chrome.com/docs/extensions/reference/
 * https://developer.chrome.com/docs/extensions/mv3/tut_debugging/
 * https://developer.chrome.com/docs/extensions/mv3/external_extensions/#preferences
+
+## Future Work
 * https://developer.chrome.com/docs/extensions/mv3/i18n-messages/

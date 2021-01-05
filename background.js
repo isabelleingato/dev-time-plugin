@@ -15,7 +15,7 @@ function updateDevTime() {
             for (topic of [' + Object.keys(updatedTopics).map(function(item) {
                 return '"' + item + '"';
             }).join(',') + ']) { \
-                if (document.body.innerText.includes(topic)) { \
+                if (RegExp(topic, \'i\').exec(document.body.innerText)) { \
                     results.topics[topic] = true;    \
                 } \
             }\
@@ -34,7 +34,10 @@ function updateDevTime() {
                     console.error(e);
                 }
             }
-            chrome.storage.sync.set(updatedTopics);
+            chrome.storage.sync.set(updatedTopics, function() {
+                // debugging
+                // alert(updated);
+            });
         });
     });
 }
